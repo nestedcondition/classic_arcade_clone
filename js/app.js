@@ -1,7 +1,7 @@
 // generic character  superclass
 var Character = function (location) {
     this.loc = location;
-}
+};
 Character.prototype.getLocation = function() {
     return [this.loc.x, this.loc.y];
 };
@@ -9,8 +9,9 @@ Character.prototype.randN = function(n) {
     // return a random integer between zero and n
     // to be used by enemy to chose random starting point and by player to choose random sprite
     n = parseInt(n);
+    var num;
     do {
-        var num = parseInt(Math.random() * 10 * (n/10));
+        num = parseInt(Math.random() * 10 * (n/10));
     } while (num >= n);
     return num;
 };
@@ -47,9 +48,9 @@ Enemy.prototype.update = function(dt) {
     newX += (200 * dt);
     if (newX > 814){ // if enemy has cycled well off the screen on right hand side
         newX =  -98; // move enemy to just off the screen on the left hand side
-    };
+    }
     this.loc.x = newX;
-}
+};
 
 // Draw the enemy on the screen, required method for game
 // Enemy.prototype.render = function() {
@@ -82,30 +83,31 @@ Player.prototype.update = function() {
 };
 Player.prototype.handleInput = function(key) {
     if (key) {
+        console.log ( this.yIndex );
         switch (key) {
             case 'left':
                 if (this.xIndex > 0) {
                     this.xIndex -= 1;
-                };
+                }
                 break;
             case 'right':
                 if (this.xIndex < 4) {
                     this.xIndex += 1;
-                };
+                }
                 break;
             case 'up':
-                if (this.yIndex < 4) {
+                if (this.yIndex < 5) {
                     this.yIndex += 1;
-                };
+                }
                 break;
             case 'down':
                 if (this.yIndex > 0) {
                     this.yIndex -= 1;
-                };
+                }
                 break;
             default:
-        };
-    };
+        }
+    }
 };
 
 
@@ -115,7 +117,7 @@ Player.prototype.handleInput = function(key) {
 var allEnemies =[];
 for (var i = 0; i < 3; i++){
     allEnemies.push( new Enemy() );
-};
+}
 
 var player = new Player();
 

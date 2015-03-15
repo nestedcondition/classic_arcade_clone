@@ -1,19 +1,3 @@
-/* Engine.js
- * This file provides the game loop functionality (update entities and render),
- * draws the initial game board on the screen, and then calls the update and
- * render methods on your player and enemy objects (defined in your app.js).
- *
- * A game engine works by drawing the entire game screen over and over, kind of
- * like a flipbook you may have created as a kid. When your player moves across
- * the screen, it may look like just that image/character is moving or being
- * drawn but that is not the case. What's really happening is the entire "scene"
- * is being drawn over and over, presenting the illusion of animation.
- *
- * This engine is available globally via the Engine variable and it also makes
- * the canvas' context (ctx) object globally available to make writing app.js
- * a little simpler to work with.
- */
-
 var Engine = (function(global) {
     /* Predefine the variables we'll be using within this scope,
      * create the canvas element, grab the 2D context for that canvas
@@ -57,7 +41,7 @@ var Engine = (function(global) {
          * function again as soon as the browser is able to draw another frame.
          */
         win.requestAnimationFrame(main);
-    };
+    }
 
     /* This function does some initial setup that should only occur once,
      * particularly setting the lastTime variable that is required for the
@@ -67,7 +51,7 @@ var Engine = (function(global) {
         reset();
         lastTime = Date.now();
         main();
-    };
+    }
 
     /* This function is called by main (our game loop) and itself calls all
      * of the functions which may need to update entity's data. Based on how
@@ -81,13 +65,20 @@ var Engine = (function(global) {
     function update(dt) {
         updateEntities(dt);
         checkCollisions();
-    };
+    }
+
+    function resetPlayer () {
+        // move player back to start position
+        player.yIndex = 0;
+        player.xIndex = 2;
+    }
 
     function checkCollisions() {
         var pW = 67; // player witdh
         var pH = 76;  // player height
         var pX = player.loc.x; // player x location
         var pY = player.loc.y; // player y location
+        if (!pY) resetPlayer();
         var eW = 98; // enemy width
         var eH = 66;  // enemy height
         allEnemies.forEach(function(enemy) {
@@ -96,12 +87,13 @@ var Engine = (function(global) {
             if ( (pX >= (eX - pW) ) && (pX <= (eX + eW) ) ) {
                 if ( (pY >= (eY - pH) ) && (pY < (eY + eH) ) ) {
                     // move player back to start position
-                    player.yIndex = 0;
-                    player.xIndex = 2;
-                };
-            };
+                    // player.yIndex = 0;
+                    // player.xIndex = 2;
+                    resetPlayer();
+                }
+            }
         });
-    };
+    }
 
     /* This is called by the update function  and loops through all of the
      * objects within your allEnemies array as defined in app.js and calls
@@ -110,14 +102,12 @@ var Engine = (function(global) {
      * the data/properties related to  the object. Do your drawing in your
      * render methods.
      */
-
-     function updateEntities() {};
     function updateEntities(dt) {
         allEnemies.forEach(function(enemy) {
             enemy.update(dt);
         });
         player.update();
-};
+}
 
     /* This function initially draws the "game level", it will then call
      * the renderEntities function. Remember, this function is called every
@@ -155,12 +145,12 @@ var Engine = (function(global) {
                  * we're using them over and over.
                  */
                 ctx.drawImage(Resources.get(rowImages[row]), col * 101, row * 83);
-            };
-        };
+            }
+        }
 
 
         renderEntities();
-    };
+    }
 
     /* This function is called by the render function and is called on each game
      * tick. It's purpose is to then call the render functions you have defined
@@ -175,7 +165,7 @@ var Engine = (function(global) {
         });
 
         player.render();
-    };
+    }
 
     /* This function does nothing but it could have been a good place to
      * handle game reset states - maybe a new game menu or a game over screen
@@ -183,7 +173,7 @@ var Engine = (function(global) {
      */
     function reset() {
         // noop
-    };
+    }
 
     /* Go ahead and load all of the images we know we're going to need to
      * draw our game level. Then set init as the callback method, so that when
