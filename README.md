@@ -1,6 +1,6 @@
 # How to play
 
-So far this is a really simple (boring) game.
+So far this is a really simple ( boring ) game.
 * Use the up, down, left, and right arrow keys to move your character around on the screen.
 
 * If your character is touched by one of the enemy bugs, the game starts over.
@@ -9,5 +9,5 @@ So far this is a really simple (boring) game.
 
 # How to run this application?
 
-1. Download the project assets ( https://github.com/nestedcondition/?? ).
+1. Download the project assets ( https://github.com/nestedcondition/classic_arcade_clone ).
 2. In your browser, open index.html at the root level of the project folder.
