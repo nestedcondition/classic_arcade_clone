@@ -1,0 +1,32 @@
+art assets and provided game engine
+https://github.com/udacity/frontend-nanodegree-arcade-game
+
+video of completed game
+https://www.youtube.com/watch?v=p2JhGrrwLuQ&feature=youtu.be
+
+psuedo classical subclasses in javascript
+http://www.howtojs.org/psuedo-classical-subclasses-in-javascript/
+
+Math.random
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random?redirectlocale=en-US&redirectslug=JavaScript%2FReference%2FGlobal_Objects%2FMath%2Frandom
+
+requestAnimationFrame
+http://www.paulirish.com/2011/requestanimationframe-for-smart-animating/
+
+requestAnimationFrame
+https://developer.mozilla.org/en-US/docs/Web/API/window.requestAnimationFrame
+
+requestAnimationFrame
+http://www.w3.org/TR/animation-timing/
+
+HTML5 Canvas Cheat Sheet
+https://simon.html5.org/dump/html5-canvas-cheat-sheet.html
+
+Object.create()
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/create
+
+animating with requestAnimationFrame
+http://www.kirupa.com/html5/animating_with_requestAnimationFrame.htm
+
+google style guide
+https://google-styleguide.googlecode.com/svn/trunk/javascriptguide.xml?showone=Wrapper_objects_for_primitive_types#JavaScript_Language_Rules
